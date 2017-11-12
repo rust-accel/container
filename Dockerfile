@@ -6,6 +6,6 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 ENV PATH $PATH:/root/.cargo/bin
-RUN cargo install xargo
+RUN cargo install xargo && rustup toolchain add nightly
 RUN mkdir -p /source
 WORKDIR /source
