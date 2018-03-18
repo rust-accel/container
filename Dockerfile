@@ -4,9 +4,9 @@ RUN apt-get update && apt-get install -y \
   curl \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
-RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain nightly
 ENV PATH $PATH:/root/.cargo/bin
-RUN cargo install xargo cargo-check && rustup toolchain add nightly
+RUN cargo install xargo cargo-check
 RUN chown -R root:users /root && chmod -R 770 /root
 RUN mkdir -p /source
 WORKDIR /source
