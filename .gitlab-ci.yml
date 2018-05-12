@@ -15,7 +15,7 @@ before_script:
 build:
   stage: build
   script:
-    - docker build --pull -t $IMAGE_TAG
+    - docker build . --pull -t $IMAGE_TAG
     - docker push $IMAGE_TAG
 
 release:
