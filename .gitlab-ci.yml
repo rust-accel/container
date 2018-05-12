@@ -1,11 +1,31 @@
+image: docker:stable
+services:
+- docker:dind
+
+stages:
+- build
+- release
+
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
 build:
-  image: docker:latest
-  services:
-    - docker:dind
   stage: build
   script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN registry.gitlab.com
-    - docker build -t registry.gitlab.com/termoshtt/rust-cuda:$CI_COMMIT_REF_NAME .
-    - docker push registry.gitlab.com/termoshtt/rust-cuda:$CI_COMMIT_REF_NAME
-  tags:
-    - docker
+    - docker build --pull -t $IMAGE_TAG
+    - docker push $IMAGE_TAG
+
+release:
+  stage: release
+  script:
+    - docker pull $IMAGE_TAG
+    - docker build . -t $CI_REGISTRY_IMAGE:cuda9.1-llvm6.0 --target cuda9.1-llvm6.0
+    - docker build . -t $CI_REGISTRY_IMAGE:cuda9.1 --target cuda9.1
+    - docker push $CI_REGISTRY_IMAGE:cuda9.1-llvm6.0
+    - docker push $CI_REGISTRY_IMAGE:cuda9.1
+  only:
+    - master
+
