@@ -24,5 +24,5 @@ ENV LD_LIBRARY_PATH "/usr/local/cuda/lib64:/usr/local/cuda/lib64/stubs"
 RUN mkdir -p /source
 WORKDIR /source
 
-FROM cuda9.1-llvm6.0
+FROM cuda9.1-llvm6.0 AS cuda9.1
 RUN bash -c 'for e in $(ls /usr/bin/ll*-6.0); do mv $e ${e%-6.0}; done'
