@@ -1,3 +1,3 @@
-# container
+# rust-cuda/container
 
-Docker image for Rust CUDA
+Docker image for rust-cuda working team
