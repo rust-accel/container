@@ -44,6 +44,7 @@ RUN apt-get update \
  && apt-get install -yq cuda-minimal-build-9-2 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ENV PATH $PATH:/usr/local/cuda-9.2/bin
 
 # Install CUDA 9.1
 FROM base16 as cuda9.1-ubuntu16.04
@@ -55,6 +56,7 @@ RUN apt-get update \
  && apt-get install -yq cuda-minimal-build-9-1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ENV PATH $PATH:/usr/local/cuda-9.1/bin
 
 # Install CUDA 9.0
 FROM base16 as cuda9.0-ubuntu16.04
@@ -66,6 +68,7 @@ RUN apt-get update \
  && apt-get install -yq cuda-minimal-build-9-0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ENV PATH $PATH:/usr/local/cuda-9.0/bin
 
 # Install CUDA 8.0
 FROM base16 as cuda8.0-ubuntu16.04
@@ -77,3 +80,4 @@ RUN apt-get update \
  && apt-get install -yq cuda-minimal-build-8-0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+ENV PATH $PATH:/usr/local/cuda-8.0/bin
