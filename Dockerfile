@@ -17,7 +17,7 @@ RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/r
  && dpkg -i cuda-repo-ubuntu1804_10.0.130-1_amd64.deb \
  && rm -f cuda-repo-ubuntu1804_10.0.130-1_amd64.deb
 RUN apt-get update \
- && apt-get install -yq cuda-minimal-build-10-0 \
+ && apt-get install -yq cuda-minimal-build-10-0 cuda-libraries-dev-10-0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
@@ -41,7 +41,7 @@ RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/r
  && dpkg -i cuda-repo-ubuntu1604_9.2.148-1_amd64.deb \
  && rm -f cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
 RUN apt-get update \
- && apt-get install -yq cuda-minimal-build-9-2 \
+ && apt-get install -yq cuda-minimal-build-9-2 cuda-libraries-dev-9-2 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH $PATH:/usr/local/cuda-9.2/bin
@@ -53,7 +53,7 @@ RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/r
  && dpkg -i cuda-repo-ubuntu1604_9.2.148-1_amd64.deb \
  && rm -f cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
 RUN apt-get update \
- && apt-get install -yq cuda-minimal-build-9-1 \
+ && apt-get install -yq cuda-minimal-build-9-1 cuda-libraries-dev-9-1 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH $PATH:/usr/local/cuda-9.1/bin
@@ -65,7 +65,7 @@ RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/r
  && dpkg -i cuda-repo-ubuntu1604_9.2.148-1_amd64.deb \
  && rm -f cuda-repo-ubuntu1604_9.2.148-1_amd64.deb
 RUN apt-get update \
- && apt-get install -yq cuda-minimal-build-9-0 \
+ && apt-get install -yq cuda-minimal-build-9-0 cuda-libraries-dev-9-0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH $PATH:/usr/local/cuda-9.0/bin
@@ -77,7 +77,7 @@ RUN apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/r
  && dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb \
  && rm -f cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 RUN apt-get update \
- && apt-get install -yq cuda-minimal-build-8-0 \
+ && apt-get install -yq cuda-minimal-build-8-0 cuda-cublas-dev-8-0 \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 ENV PATH $PATH:/usr/local/cuda-8.0/bin
