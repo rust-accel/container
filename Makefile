@@ -3,16 +3,21 @@ UBUNTU1804_CUDA_VERSION := 9.2 10.0 10.1 10.2
 CENTOS6_CUDA_VERSION := 8.0 9.0 9.1 9.2 10.0 10.1 10.2
 CENTOS7_CUDA_VERSION := 8.0 9.0 9.1 9.2 10.0 10.1 10.2
 
+REGISTRY := docker.pkg.github.com
+REPO := $(REGISTRY)/$(GITHUB_REPOSITORY)
+
 define ubuntu
 ubuntu$(1)-cuda$(2):
 	sed -e "s/CUDA_VERSION/$(2)/" -e "s/UBUNTU_VERSION/$(1)/" < ubuntu.Dockerfile > $$@.Dockerfile
-	docker build -f $$@.Dockerfile -t $$(subst .,,$$@) .
+	docker build -f $$@.Dockerfile -t $(REPO)/$$(subst .,,$$@) .
+	docker push $(REPO)/$$(subst .,,$$@)
 endef
 
 define centos
 centos$(1)-cuda$(2):
 	sed -e "s/CUDA_VERSION/$(2)/" -e "s/CENTOS_VERSION/$(1)/" < centos.Dockerfile > $$@.Dockerfile
-	docker build -f $$@.Dockerfile -t $$(subst .,,$$@) .
+	docker build -f $$@.Dockerfile -t $(REPO)/$$(subst .,,$$@) .
+	docker push $(REPO)/$$(subst .,,$$@)
 endef
 
 .PHONY: clean
