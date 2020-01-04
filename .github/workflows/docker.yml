@@ -1,0 +1,21 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+  pull_request: {}
+
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1804-cuda102
