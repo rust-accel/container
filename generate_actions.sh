@@ -17,7 +17,7 @@ cat << EOF
       - name: Login GitHub Registry
         run: docker login docker.pkg.github.com -u owner -p \${{ secrets.GITHUB_TOKEN }}
       - name: Build image
-        run: make centos${UBUNTU_VERSION}-cuda${CUDA_VERSION}
+        run: make centos${CENTOS_VERSION}-cuda${CUDA_VERSION}
 EOF
   done
 done
