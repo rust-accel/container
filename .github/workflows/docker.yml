@@ -18,4 +18,4 @@ jobs:
       - name: Login GitHub Registry
         run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
       - name: Build image
-        run: make ubuntu1804-cuda102
+        run: make ubuntu18.04-cuda10.2
