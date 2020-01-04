@@ -1,21 +1,227 @@
-name: Docker
-
-on:
-  push:
-    branches:
-      - master
-  pull_request: {}
-
-env:
-  DOCKER_BUILDKIT: 1
-
+on: [push]
 jobs:
-  build:
-    name: Build image
-    runs-on: ubuntu-18.04
+  centos6-cuda8_0:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 8.0
     steps:
       - uses: actions/checkout@master
       - name: Login GitHub Registry
         run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
       - name: Build image
-        run: make ubuntu18.04-cuda10.2
+        run: make centos6-cuda8_0
+  centos6-cuda9_0:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 9.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda9_0
+  centos6-cuda9_1:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 9.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda9_1
+  centos6-cuda9_2:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 9.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda9_2
+  centos6-cuda10_0:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 10.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda10_0
+  centos6-cuda10_1:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 10.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda10_1
+  centos6-cuda10_2:
+    runs-on: ubuntu-latest
+    name: CentOS 6, CUDA 10.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos6-cuda10_2
+  centos7-cuda8_0:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 8.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda8_0
+  centos7-cuda9_0:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 9.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda9_0
+  centos7-cuda9_1:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 9.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda9_1
+  centos7-cuda9_2:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 9.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda9_2
+  centos7-cuda10_0:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 10.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda10_0
+  centos7-cuda10_1:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 10.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda10_1
+  centos7-cuda10_2:
+    runs-on: ubuntu-latest
+    name: CentOS 7, CUDA 10.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make centos7-cuda10_2
+  ubuntu1604-cuda8_0:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 8.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda8_0
+  ubuntu1604-cuda9_0:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 9.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda9_0
+  ubuntu1604-cuda9_1:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 9.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda9_1
+  ubuntu1604-cuda9_2:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 9.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda9_2
+  ubuntu1604-cuda10_0:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 10.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda10_0
+  ubuntu1604-cuda10_1:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 10.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda10_1
+  ubuntu1604-cuda10_2:
+    runs-on: ubuntu-latest
+    name: Ubuntu 16.04, CUDA 10.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1604-cuda10_2
+  ubuntu1804-cuda9_2:
+    runs-on: ubuntu-latest
+    name: Ubuntu 18.04, CUDA 9.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1804-cuda9_2
+  ubuntu1804-cuda10_0:
+    runs-on: ubuntu-latest
+    name: Ubuntu 18.04, CUDA 10.0
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1804-cuda10_0
+  ubuntu1804-cuda10_1:
+    runs-on: ubuntu-latest
+    name: Ubuntu 18.04, CUDA 10.1
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1804-cuda10_1
+  ubuntu1804-cuda10_2:
+    runs-on: ubuntu-latest
+    name: Ubuntu 18.04, CUDA 10.2
+    steps:
+      - uses: actions/checkout@master
+      - name: Login GitHub Registry
+        run: docker login docker.pkg.github.com -u owner -p ${{ secrets.GITHUB_TOKEN }}
+      - name: Build image
+        run: make ubuntu1804-cuda10_2
