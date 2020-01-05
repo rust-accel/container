@@ -9,15 +9,15 @@ REPO := $(REGISTRY)/$(GITHUB_REPOSITORY)
 define ubuntu
 ubuntu$(1)-cuda$(2):
 	sed -e "s/CUDA_VERSION/$(2)/" -e "s/UBUNTU_VERSION/$(1)/" < ubuntu.Dockerfile > $$@.Dockerfile
-	docker build -f $$@.Dockerfile -t $(REPO)/$$(subst .,,$$@) .
-	docker push $(REPO)/$$(subst .,,$$@)
+	docker build -f $$@.Dockerfile -t $(REPO):$$@ .
+	docker push $(REPO):$$@ .
 endef
 
 define centos
 centos$(1)-cuda$(2):
 	sed -e "s/CUDA_VERSION/$(2)/" -e "s/CENTOS_VERSION/$(1)/" < centos.Dockerfile > $$@.Dockerfile
-	docker build -f $$@.Dockerfile -t $(REPO)/$$(subst .,,$$@) .
-	docker push $(REPO)/$$(subst .,,$$@)
+	docker build -f $$@.Dockerfile -t $(REPO):$$@ .
+	docker push $(REPO):$$@ .
 endef
 
 .PHONY: clean
